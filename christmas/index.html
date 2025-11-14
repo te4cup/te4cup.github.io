@@ -263,32 +263,22 @@
     <h1 id="header"></h1>
   </div>
     <!-- partial -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/MorphSVGPlugin.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/DrawSVGPlugin.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/MotionPathPlugin.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/Physics2DPlugin.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/EasePack.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/DrawSVGPlugin.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/MotionPathPlugin.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/MorphSVGPlugin.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Physics2DPlugin.min.js"></script>
   </body>
   <script>
-	// 检查并注册插件
-	function checkAndRegisterPlugin(pluginName) {
-		if (typeof window[pluginName] !== 'undefined') {
-			gsap.registerPlugin(window[pluginName]);
-			return true;
-		}
-		console.error(`${pluginName} 未加载成功`);
-		return false;
-	}
+	
 
-	// 检查所有需要的插件
-	const pluginsLoaded = [
-		'MorphSVGPlugin',
-		'DrawSVGPlugin',
-		'MotionPathPlugin',
-		'Physics2DPlugin'
-	].every(checkAndRegisterPlugin);
-		
+	 // use a script tag or an external JS file
+	 document.addEventListener("DOMContentLoaded", (event) => {
+	  gsap.registerPlugin(DrawSVGPlugin,MotionPathPlugin,MorphSVGPlugin,Physics2DPlugin)
+	  // gsap code here!
+	 });
+	 
     function snow() {
       //  1、定义一片雪花模板
       var flake = document.createElement("div");
